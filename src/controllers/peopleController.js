@@ -1,7 +1,7 @@
 const supabase = require("../config/supabase");
 
 exports.createPerson = async (req, res) => {
-  const { firstName, lastName, phoneNumber, email, orderId } = req.body;
+  const { firstName, lastName, phoneNumber, city, email, orderId } = req.body;
 
   if (!firstName || !lastName || !phoneNumber || !email || !orderId) {
     return res.status(400).json({ error: "All fields are required" });
@@ -15,6 +15,7 @@ exports.createPerson = async (req, res) => {
           firstname: firstName,
           lastname: lastName,
           phonenumber: phoneNumber,
+          city: city,
           email: email,
           orderid: orderId,
         },
