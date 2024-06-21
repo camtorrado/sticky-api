@@ -34,3 +34,28 @@ exports.createPerson = async (req, res) => {
     res.status(500).json({ error: "Error creating person" });
   }
 };
+
+exports.getPersonByOrderId = async (req, res) => {
+  const { orderId } = req.params;
+
+  try {
+    const { data, error } = await supabase
+      .from("people")
+      .select("id, quantity")
+      .eq("orderid", orderId);
+
+    if (error) {
+      console.error("Error fetching person by orderId:", error);
+      return res.status(500).json({ error: "Error fetching person by orderId" });
+    }
+
+    if (data.length === 0) {
+      return res.status(404).json({ error: "Person not found" });
+    }
+
+    res.status(200).json({ id:data[0].id, quantity:data[0].quantity });
+  } catch (error) {
+    console.error("Error fetching person by orderId:", error);
+    res.status(500).json({ error: "Error fetching person by orderId" });
+  }
+};
