@@ -57,7 +57,7 @@ exports.getPersonByOrderId = async (req, res) => {
       return res.status(404).json({ error: "Person not found" });
     }
 
-    res.status(200).json(data);
+    res.status(200).json({ id:data[0].id, quantity:data[0].quantity });
   } catch (error) {
     console.error("Error fetching person by orderId:", error);
     res.status(500).json({ error: "Error fetching person by orderId" });
