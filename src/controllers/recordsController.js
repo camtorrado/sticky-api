@@ -39,7 +39,7 @@ exports.createRecords = async (req, res) => {
       return res.status(500).json({ error: 'Error saving records' });
     }
 
-    res.json({ success: true, records: data });
+    res.json({ success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error creating records' });
