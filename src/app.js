@@ -1,5 +1,4 @@
 require("dotenv").config();
-import { SpeedInsights } from "@vercel/speed-insights/next"
 const cors = require("cors");
 const express = require("express");
 const app = express();

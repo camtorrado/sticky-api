@@ -2,7 +2,6 @@
   "name": "api",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
@@ -16,7 +15,6 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.4",
-    "@vercel/speed-insights": "^1.0.12",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
